@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="+100 Planilhas de Treinos ajustadas para o seu biotipo. Pare de perder tempo! Saiba exatamente o que seguir e quais os melhores exercícios.">
+  <title>+100 Planilhas de Treinos | Ajustado para o seu Biotipo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+
+    /* ── TOKENS ── */
+    :root {
+      --brown-dark:  #2d1b14;
+      --brown-mid:   #6b1a0e;
+      --brown-card:  #1a0e0a;
+      --orange:      #ff6b35;
+      --orange-dark: #c0392b;
+      --white:       #ffffff;
+      --gray-light:  #f5ede0;
+      --gray-bg:     #f9f6f2;
+      --text-dark:   #1a1a1a;
+      --text-mid:    #555;
+      --text-soft:   #888;
+      --radius-lg:   16px;
+      --radius-md:   12px;
+      --radius-sm:   8px;
+      --shadow-sm:   0 2px 8px rgba(0,0,0,0.07);
+      --shadow-md:   0 4px 16px rgba(0,0,0,0.10);
+    }
+
+    /* ── LAYOUT ── */
+    .wrap {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── UTILITY ── */
+    .badge-pill {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 7px 18px;
+      border-radius: 25px;
+    }
+    .btn-cta {
+      display: block;
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 18px 24px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-cta:hover { background: #e85d28; transform: translateY(-2px); }
+    .btn-cta:active { transform: translateY(0); }
+
+    /* ────────────────────────────────────────────
+       SEÇÕES
+    ──────────────────────────────────────────── */
+
+    /* 1. HERO */
+    .hero {
+      background: var(--brown-dark);
+      padding: 32px 20px 0;
+      text-align: center;
+    }
+    .hero .badge-pill { margin-bottom: 20px; }
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 14px;
+      color: var(--orange);
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .hero img {
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* 2. PREÇO / BENEFÍCIOS */
+    .pricing-section {
+      background: var(--brown-dark);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .social-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .social-row span { font-size: 20px; }
+    .social-row p { color: var(--orange); font-size: 13px; font-weight: 600; }
+
+    .benefit-list { text-align: left; margin-bottom: 20px; }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .benefit-icon {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .benefit-item p { color: #fff; font-size: 14px; font-weight: 600; }
+
+    .price-card {
+      background: var(--brown-mid);
+      border: 2px solid #a0341f;
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .price-card:hover { opacity: 0.92; }
+    .price-card .from-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin-bottom: 8px;
+    }
+    .price-card .from-row p { color: #fff; font-size: 13px; }
+    .price-card .from-row s { font-weight: 700; }
+    .price-main {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+    }
+    .price-main .value { color: #fff; font-size: 52px; font-weight: 800; line-height: 1; }
+    .off-badge {
+      background: var(--orange);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .bonus-row {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .bonus-row p { color: var(--orange); font-size: 13px; font-weight: 600; }
+
+    /* 3. TREINOS PERSONALIZADOS */
+    .treinos-section {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .treinos-box {
+      background: #7a1a0a;
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      margin-bottom: 24px;
+    }
+    .treinos-box p { color: #fff; font-size: 14px; font-weight: 700; line-height: 1.7; }
+    .treinos-section h2 {
+      color: var(--text-dark);
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+    .treinos-section .social-proof {
+      color: var(--orange-dark);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    /* 4. CARDS (PLANILHAS, GIFS, DESAFIO) */
+    .cards-section {
+      background: var(--gray-light);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .cards-section h2 {
+      color: var(--text-dark);
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .cards-section > .wrap > p {
+      color: #555;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .cta-text {
+      color: var(--orange-dark);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      letter-spacing: 0.3px;
+    }
+    .card-list { display: flex; flex-direction: column; gap: 20px; }
+    .card-item {
+      background: #fff;
+      border: 1px solid #e0d5c8;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-item-img {
+      background: var(--brown-dark);
+      padding: 22px;
+      display: flex;
+      justify-content: center;
+    }
+    .card-item-img img {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--orange);
+    }
+    .card-item-body { padding: 20px; text-align: left; }
+    .card-item-body h3 {
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    .card-item-body p { color: var(--text-mid); font-size: 13px; line-height: 1.7; }
+
+    /* 5. COMO ACESSAR */
+    .access-section {
+      background: var(--brown-dark);
+      padding: 44px 20px;
+      text-align: center;
+    }
+    .access-section h2 { color: #fff; font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .access-section > .wrap > p {
+      color: #bbb;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .step-list { display: flex; flex-direction: column; gap: 16px; }
+    .step-card {
+      background: var(--brown-mid);
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      text-align: center;
+    }
+    .step-number {
+      width: 46px; height: 46px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 800; color: #fff;
+      margin: 0 auto 14px;
+    }
+    .step-card h4 {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .step-card p { color: rgba(255,255,255,0.85); font-size: 13px; line-height: 1.6; }
+
+    /* 6. BÔNUS */
+    .bonus-section {
+      background: #fff;
+      padding: 44px 20px;
+      text-align: center;
+    }
+    .bonus-section h2 { color: var(--text-dark); font-size: 22px; font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
+    .bonus-section > .wrap > p { color: var(--text-soft); font-size: 13px; margin-bottom: 28px; line-height: 1.6; }
+    .bonus-list { display: flex; flex-direction: column; gap: 20px; }
+    .bonus-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    .bonus-card-img { position: relative; }
+    .bonus-card-img img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .bonus-label {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+    .bonus-card-body { padding: 18px 16px; }
+    .bonus-card-body h3 { color: var(--text-dark); font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+    .bonus-card-body p { color: var(--text-mid); font-size: 13px; line-height: 1.7; }
+
+    /* 7. DEPOIMENTOS */
+    .testimonials-section {
+      background: var(--gray-bg);
+      padding: 44px 20px;
+      text-align: center;
+    }
+    .testimonials-section .eyebrow {
+      color: var(--text-soft);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .testimonials-section h2 { color: var(--text-dark); font-size: 22px; font-weight: 800; margin-bottom: 28px; }
+    .testimonials-section h2 span { color: var(--orange-dark); }
+    .testimonial-list { display: flex; flex-direction: column; gap: 14px; }
+    .testimonial-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+    }
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .testimonial-header img {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--orange);
+      flex-shrink: 0;
+    }
+    .testimonial-header .info { flex: 1; text-align: left; }
+    .testimonial-header .info strong { display: block; font-size: 13px; color: var(--text-dark); }
+    .testimonial-header .stars { color: var(--orange); font-size: 13px; margin-top: 2px; }
+    .testimonial-header .quote { font-size: 28px; color: #ddd; line-height: 1; margin-left: auto; }
+    .testimonial-card p { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+
+    /* 8. OFERTA FINAL */
+    .offer-section { background: var(--brown-dark); }
+    .offer-topbar {
+      background: var(--orange-dark);
+      padding: 10px 20px;
+      text-align: center;
+    }
+    .offer-topbar p {
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .offer-body { padding: 32px 20px; text-align: center; }
+    .offer-body h2 { color: #fff; font-size: 23px; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }
+    .offer-body > p { color: #bbb; font-size: 13px; line-height: 1.6; margin-bottom: 24px; }
+
+    .offer-card {
+      background: var(--brown-card);
+      border: 1px solid #3d2a20;
+      border-radius: var(--radius-lg);
+      padding: 26px 20px;
+      margin-bottom: 20px;
+    }
+    .offer-card .super-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 25px;
+      margin-bottom: 18px;
+    }
+    .offer-card .pack-title {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-bottom: 16px;
+    }
+    .offer-card .pack-title p { color: #fff; font-size: 15px; font-weight: 800; text-transform: uppercase; }
+    .offer-price-box {
+      background: var(--brown-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .offer-price-box .from-line {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-bottom: 6px;
+    }
+    .offer-price-box .from-line s { color: #aaa; font-size: 14px; }
+    .offer-price-box .big-price { color: #fff; font-size: 50px; font-weight: 800; line-height: 1; }
+    .offer-price-box .payment-info { color: #aaa; font-size: 12px; margin-top: 6px; }
+
+    .bonus-included { text-align: left; }
+    .bonus-included p { color: var(--orange); font-size: 13px; font-weight: 700; margin-bottom: 10px; text-align: center; }
+    .bonus-included-item {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 8px;
+    }
+    .bonus-check {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #fff; font-weight: 700;
+    }
+    .bonus-included-item span { color: #ddd; font-size: 13px; }
+
+    .secure-text { color: #aaa; font-size: 12px; margin: 10px 0 20px; }
+    .social-pill {
+      display: inline-block;
+      background: #3d1f10;
+      border-radius: 25px;
+      padding: 10px 20px;
+    }
+    .social-pill p { color: var(--orange); font-size: 12px; font-weight: 700; }
+
+    /* 9. CONFIANÇA */
+    .trust-section {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .trust-section h2 { color: var(--text-dark); font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+    .trust-section > .wrap > p { color: var(--text-soft); font-size: 13px; margin-bottom: 28px; }
+    .trust-cards { display: flex; gap: 14px; }
+    .trust-card {
+      flex: 1;
+      border: 1px solid #eee;
+      border-radius: var(--radius-lg);
+      padding: 22px 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .trust-icon {
+      width: 50px; height: 50px;
+      background: var(--orange);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      margin: 0 auto 12px;
+    }
+    .trust-card strong { display: block; font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+    .trust-card p { font-size: 11px; color: var(--text-soft); line-height: 1.6; }
+
+    /* 10. FAQ */
+    .faq-section {
+      background: var(--brown-dark);
+      padding: 40px 20px;
+    }
+    .faq-section h2 { color: #fff; font-size: 21px; font-weight: 800; text-align: center; margin-bottom: 8px; }
+    .faq-section > .wrap > p { color: #aaa; font-size: 13px; text-align: center; margin-bottom: 24px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--orange);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 18px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary .arrow { font-size: 18px; transition: transform 0.25s; flex-shrink: 0; margin-left: 8px; }
+    .faq-item[open] summary .arrow { transform: rotate(90deg); }
+    .faq-answer {
+      padding: 0 18px 16px;
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* 11. FOOTER */
+    footer {
+      background: var(--brown-card);
+      padding: 16px 20px;
+      text-align: center;
+    }
+    footer p { color: #666; font-size: 11px; }
+
+    /* ── DESKTOP TWEAKS ── */
+    @media (min-width: 600px) {
+      .hero h1 { font-size: 30px; }
+      .wrap { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       1. HERO
+  ══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge-pill">OFERTA ESPECIAL — 93% DE DESCONTO</span>
+      <h1>+100 Planilhas de Treinos Ajustado para o seu Biotipo</h1>
+      <p>Pare de perder tempo! Saiba exatamente o que seguir e quais os melhores exercícios</p>
+      <img src="https://doram.shop/wp-content/uploads/2026/02/hero-image-1.png" alt="Capa +100 Planilhas de Treinos" loading="eager">
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       2. PREÇO / BENEFÍCIOS
+  ══════════════════════════════════════ -->
+  <section class="pricing-section">
+    <div class="wrap">
+      <div class="social-row">
+        <span>👥</span>
+        <p>+2.347 pessoas já aprovaram</p>
+      </div>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <p>+100 Planilhas de Treinos</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <p>+275 GIFs Ilustrados Mostrando o Exercício</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <p>Prescrição de Treino para 12 Meses</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <p>Protocolo: Desafio 24 Dias</p>
+        </div>
+      </div>
+
+      <a href="#oferta" class="price-card">
+        <div class="from-row">
+          <p>De: <s>R$ 87,00</s></p>
+          <p>Por apenas:</p>
+        </div>
+        <div class="price-main">
+          <span class="value">R$ 5,90</span>
+          <span class="off-badge">93% OFF</span>
+        </div>
+      </a>
+
+      <div class="bonus-row">
+        <span style="font-size:18px">🎁</span>
+        <p>+ 3 Bônus Exclusivos de GRAÇA</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       3. TREINOS PERSONALIZADOS
+  ══════════════════════════════════════ -->
+  <section class="treinos-section">
+    <div class="wrap">
+      <div class="treinos-box">
+        <p>Treinos personalizados como phat (power hypertrophy adaptive training) upper/lower push/pull, fullbody, metabólico e muito mais.</p>
+      </div>
+      <h2>Treinos focado em cada grupo muscular é o fim das dúvidas sobre volume e alteração de treino.</h2>
+      <p class="social-proof">Mais de <strong>2.347 pessoas</strong> já estão fazendo o acompanhamento direcionado e dando adeus as fichinhas de academia. <strong>E você?</strong></p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       4. CARDS — PLANILHAS, GIFS, DESAFIO
+  ══════════════════════════════════════ -->
+  <section class="cards-section">
+    <div class="wrap">
+      <h2>Veja o que você vai Aprender e Receber</h2>
+      <p>Você vai encontrar métodos exclusivos e que funcionam para ajudá-lo a atingir seus objetivos. Com treinos personalizados para iniciantes, intermediários e avançados.</p>
+      <p class="cta-text">Chega de depender de fichinhas da academia!</p>
+
+      <div class="card-list">
+        <div class="card-item">
+          <div class="card-item-img">
+            <img src="https://doram.shop/wp-content/uploads/2026/02/100-planilhas.png" alt="100 Planilhas de Treino" loading="lazy">
+          </div>
+          <div class="card-item-body">
+            <h3>+ de 100 Planilhas</h3>
+            <p>Pare de perder tempo montando treinos ou copiando treinos genéricos da internet. Tudo aqui já está pronto, com instruções claras, séries, reps e GIFs.</p>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-img">
+            <img src="https://doram.shop/wp-content/uploads/2026/02/100-planilhas.png" alt="275 GIFs Explicativos" loading="lazy">
+          </div>
+          <div class="card-item-body">
+            <h3>+ 275 GIFs Explicativos</h3>
+            <p>GIFs explicando cada exercício para te ajudar na execução correta de cada movimento.</p>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-img">
+            <img src="https://doram.shop/wp-content/uploads/2026/02/desafio-24dias.png" alt="Desafio 24 Dias" loading="lazy">
+          </div>
+          <div class="card-item-body">
+            <h3>Desafio 24 Dias</h3>
+            <p>O protocolo oculto que desperta o seu metabolismo para entrar em modo de queima extrema 24 horas por dia. Inspirado nos rituais de atletas de elite.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       5. COMO ACESSAR
+  ══════════════════════════════════════ -->
+  <section class="access-section">
+    <div class="wrap">
+      <h2>Como Tenho Acesso ao Material?</h2>
+      <p>Após realizar o seu pedido e o pagamento você irá receber seu acesso diretamente no seu WhatsApp e no seu e-mail.</p>
+
+      <div class="step-list">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4>Faça o Pedido do Material</h4>
+          <p>No final da página acesse a opção comprar para abrir o pedido e efetuar a compra.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4>Receba no seu WhatsApp e E-mail</h4>
+          <p>Enviaremos as instruções de como acessar seu novo material.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4>Pagamento Único e Acesso Vitalício</h4>
+          <p>Sem taxas ou pegadinhas, pagamento único e acesso liberado para sempre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       6. BÔNUS
+  ══════════════════════════════════════ -->
+  <section class="bonus-section">
+    <div class="wrap">
+      <span class="badge-pill" style="margin-bottom:16px">🎁 Bônus Exclusivos</span>
+      <h2>+ 3 Bônus Exclusivos Para Quem Adquirir Hoje</h2>
+      <p>Além do produto principal, você recebe acesso imediato a estes bônus incríveis</p>
+
+      <div class="bonus-list">
+        <div class="bonus-card">
+          <div class="bonus-card-img">
+            <img src="https://doram.shop/wp-content/uploads/2026/02/250-receitas-low-carb.png" alt="250 Receitas Low Carb" loading="lazy">
+            <span class="bonus-label">Bônus 1</span>
+          </div>
+          <div class="bonus-card-body">
+            <h3>250 Receitas Low Carb</h3>
+            <p>Preparado para você que está com dificuldades em montar cardápios para o seu dia a dia com foco em dietas Low Carb.</p>
+          </div>
+        </div>
+
+        <div class="bonus-card">
+          <div class="bonus-card-img">
+            <img src="https://doram.shop/wp-content/uploads/2026/02/128-receitas-anabolicas.png" alt="128 Receitas Anabólicas" loading="lazy">
+            <span class="bonus-label">Bônus 2</span>
+          </div>
+          <div class="bonus-card-body">
+            <h3>128 Receitas Anabólicas</h3>
+            <p>Para você que deseja escolher um estilo de vida saudável com alimentação limpa, concentrada em alimentos integrais não refinados.</p>
+          </div>
+        </div>
+
+        <div class="bonus-card">
+          <div class="bonus-card-img">
+            <img src="https://doram.shop/wp-content/uploads/2026/02/50-receitas-saudaveis.png" alt="50 Receitas Saudáveis" loading="lazy">
+            <span class="bonus-label">Bônus 3</span>
+          </div>
+          <div class="bonus-card-body">
+            <h3>50 Receitas Saudáveis</h3>
+            <p>Receitas para Secar! Uma coleção irresistível de receitas saudáveis projetadas para apoiar seus objetivos de perda de peso e bem estar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       7. DEPOIMENTOS
+  ══════════════════════════════════════ -->
+  <section class="testimonials-section">
+    <div class="wrap">
+      <p class="eyebrow">Depoimentos</p>
+      <h2>Quem Fez, <span>Se SUPEROU!</span></h2>
+
+      <div class="testimonial-list">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Camila Souza" loading="lazy">
+            <div class="info">
+              <strong>Camila Souza</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <span class="quote">"</span>
+          </div>
+          <p>Nunca pensei que seguir uma planilha de treino fosse tão simples. Os GIFs explicando cada exercício fizeram toda a diferença. Em 3 semanas já vi resultado!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rafael Martins" loading="lazy">
+            <div class="info">
+              <strong>Rafael Martins</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <span class="quote">"</span>
+          </div>
+          <p>Finalmente parei de depender das fichinhas da academia. O material é completo demais, vale muito mais do que paguei. Recomendo para todo mundo!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fernanda Lima" loading="lazy">
+            <div class="info">
+              <strong>Fernanda Lima</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <span class="quote">"</span>
+          </div>
+          <p>O Desafio 24 Dias foi incrível! Meu metabolismo acelerou de um jeito que eu nunca tinha sentido antes. Super indico para quem quer resultado de verdade.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Lucas Pereira" loading="lazy">
+            <div class="info">
+              <strong>Lucas Pereira</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <span class="quote">"</span>
+          </div>
+          <p>Comprei sem expectativa e me surpreendi. As planilhas são organizadas, fáceis de entender e os treinos são variados. Já indiquei para minha turma da academia.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Juliana Costa" loading="lazy">
+            <div class="info">
+              <strong>Juliana Costa</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <span class="quote">"</span>
+          </div>
+          <p>Melhor investimento que fiz esse ano. As receitas anabólicas e low carb me ajudaram muito na dieta. Tudo junto num preço absurdamente barato!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="André Oliveira" loading="lazy">
+            <div class="info">
+              <strong>André Oliveira</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <span class="quote">"</span>
+          </div>
+          <p>Treinos para todos os níveis, do iniciante ao avançado. Finalmente entendi como montar minha própria rotina de forma inteligente. Valeu demais!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       8. OFERTA FINAL
+  ══════════════════════════════════════ -->
+  <section class="offer-section" id="oferta">
+    <div class="offer-topbar">
+      <p>✦ OFERTA ESPECIAL POR TEMPO LIMITADO! ✦</p>
+    </div>
+
+    <div class="offer-body">
+      <div class="wrap">
+        <span class="badge-pill" style="margin-bottom:22px">🏷 93% DE DESCONTO SOMENTE HOJE</span>
+        <h2>Pacote: +100 Planilhas de Treinos</h2>
+        <p>Pare de perder tempo!<br>Saiba exatamente o que seguir e quais os melhores exercícios.</p>
+
+        <div class="offer-card">
+          <span class="super-badge">➤ SUPER OFERTA ✦</span>
+          <div class="pack-title">
+            <span>🎁</span>
+            <p>Pacote Completo</p>
+          </div>
+          <div class="offer-price-box">
+            <div class="from-line">
+              <s>R$ 87,00</s>
+              <span class="off-badge">93% OFF</span>
+            </div>
+            <p class="big-price">R$ 5,90</p>
+            <p class="payment-info">Pagamento único</p>
+          </div>
+          <div class="bonus-included">
+            <p>🎁 + 3 BÔNUS GRÁTIS</p>
+            <div class="bonus-included-item">
+              <div class="bonus-check">✓</div>
+              <span>250 Receitas Low Carb</span>
+            </div>
+            <div class="bonus-included-item">
+              <div class="bonus-check">✓</div>
+              <span>128 Receitas Anabólicas</span>
+            </div>
+            <div class="bonus-included-item">
+              <div class="bonus-check">✓</div>
+              <span>50 Receitas Saudáveis</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="btn-cta">SIM, QUERO GARANTIR MEU PACOTE AGORA!</a>
+        <p class="secure-text">🔒 Compra Segura</p>
+        <div class="social-pill">
+          <p>+ 2.347 pessoas já transformaram seus treinos!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       9. CONFIANÇA
+  ══════════════════════════════════════ -->
+  <section class="trust-section">
+    <div class="wrap">
+      <h2>Sua Confiança é Nossa Prioridade</h2>
+      <p>Garantimos uma experiência segura e satisfatória</p>
+      <div class="trust-cards">
+        <div class="trust-card">
+          <div class="trust-icon">❤️</div>
+          <strong>+2.000 Satisfeitos</strong>
+          <p>Pessoas que já transformaram seus treinos e suas vidas</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🔒</div>
+          <strong>Pagamento Seguro</strong>
+          <p>Seus dados protegidos com criptografia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       10. FAQ
+  ══════════════════════════════════════ -->
+  <section class="faq-section">
+    <div class="wrap">
+      <h2>Perguntas Frequentes</h2>
+      <p>Tire suas dúvidas sobre o produto</p>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>O que vou receber? <span class="arrow">›</span></summary>
+          <p class="faq-answer">Você vai receber +100 planilhas de treinos personalizados, +275 GIFs explicativos dos exercícios, o protocolo Desafio 24 Dias e mais 3 bônus: 250 Receitas Low Carb, 128 Receitas Anabólicas e 50 Receitas Saudáveis.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Como receberei o material? <span class="arrow">›</span></summary>
+          <p class="faq-answer">Após a confirmação do pagamento, você receberá as instruções de acesso diretamente no seu WhatsApp e e-mail cadastrado.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Por quanto tempo poderei acessar as planilhas? <span class="arrow">›</span></summary>
+          <p class="faq-answer">O acesso é vitalício! Pague uma única vez e acesse para sempre, sem mensalidades ou taxas adicionais.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       11. FOOTER
+  ══════════════════════════════════════ -->
+  <footer>
+    <p>© 2025 Info Cursos Brasil. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
