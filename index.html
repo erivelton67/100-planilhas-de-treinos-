@@ -936,7 +936,50 @@
   </footer>
 
   <script>
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));t&&t.scrollIntoView({behavior:'smooth'})})});
+    
+    // Counter animation
+    function animateCounter() {
+      const counter = document.getElementById('counter');
+      const target = 2347;
+      const duration = 2000; // 2 seconds
+      const frameDuration = 1000 / 60; // 60 FPS
+      const totalFrames = Math.round(duration / frameDuration);
+      let frame = 0;
+      
+      const easeOutQuad = t => t * (2 - t);
+      
+      const animate = () => {
+        frame++;
+        const progress = easeOutQuad(frame / totalFrames);
+        const currentCount = Math.round(progress * target);
+        counter.textContent = currentCount.toLocaleString('pt-BR');
+        
+        if (frame < totalFrames) {
+          requestAnimationFrame(animate);
+        } else {
+          counter.textContent = target.toLocaleString('pt-BR');
+        }
+      };
+      
+      animate();
+    }
+    
+    // Start counter when element is visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    const counterElement = document.getElementById('counter');
+    if (counterElement) {
+      observer.observe(counterElement);
+    }
   </script>
 
 </body>
