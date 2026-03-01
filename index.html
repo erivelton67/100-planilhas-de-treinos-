@@ -122,9 +122,16 @@
       margin-bottom: 20px;
     }
     .hero img {
-      width: 100%;
+      width: 120%;
+      max-width: 120%;
       margin: 0 auto;
       display: block;
+      transform: translateX(-10%);
+      animation: heroZoom 3s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      0% { transform: translateX(-10%) scale(1); }
+      100% { transform: translateX(-10%) scale(1.05); }
     }
 
     /* 2. PREÇO / BENEFÍCIOS */
@@ -578,7 +585,7 @@
     <div class="wrap">
       <div class="social-row">
         <span>👥</span>
-        <p>+2.347 pessoas já aprovaram</p>
+        <p>+<span id="counter">0</span> pessoas já aprovaram</p>
       </div>
 
       <div class="benefit-list">
