@@ -7,13 +7,13 @@
   <title>+100 Planilhas de Treinos | Ajustado para o seu Biotipo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     /* ── RESET & BASE ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: #fff;
       color: #333;
       line-height: 1.6;
@@ -50,10 +50,22 @@
       padding: 0 20px;
     }
 
-    /* Prevent horizontal overflow globally */
     html, body {
       overflow-x: hidden;
       width: 100%;
+    }
+
+    /* ── TOP DISCOUNT BAR ── */
+    .top-discount-bar {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 8px 20px;
+      text-align: center;
     }
 
     /* ── UTILITY ── */
@@ -73,7 +85,7 @@
       width: 100%;
       background: var(--orange);
       color: #fff;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 800;
       text-transform: uppercase;
@@ -89,17 +101,12 @@
     .btn-cta:hover { background: #e85d28; transform: translateY(-2px); }
     .btn-cta:active { transform: translateY(0); }
 
-    /* ────────────────────────────────────────────
-       SEÇÕES
-    ──────────────────────────────────────────── */
-
     /* 1. HERO */
     .hero {
       background: var(--brown-dark);
       padding: 32px 20px 0;
       text-align: center;
     }
-    .hero .badge-pill { margin-bottom: 20px; }
     .hero h1 {
       font-size: 26px;
       font-weight: 800;
@@ -179,17 +186,6 @@
       display: flex; flex-direction: column; align-items: center; gap: 12px;
     }
     .price-main .value { color: #fff; font-size: clamp(42px, 14vw, 60px); font-weight: 800; line-height: 1; }
-    .off-badge {
-      display: inline-block;
-      background: var(--orange);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 8px 28px;
-      border-radius: 25px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
 
     .bonus-row {
       display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -223,7 +219,7 @@
       line-height: 1.7;
     }
 
-    /* 4. CARDS (PLANILHAS, GIFS, DESAFIO) */
+    /* 4. CARDS */
     .cards-section {
       background: #f5ede0;
       padding: 40px 20px;
@@ -235,14 +231,12 @@
       font-weight: 800;
       margin-bottom: 10px;
       line-height: 1.3;
-      padding: 0;
     }
     .cards-section > .wrap > p {
       color: #555;
       font-size: 13px;
       line-height: 1.7;
       margin-bottom: 12px;
-      padding: 0;
     }
     .cta-text {
       color: var(--orange-dark);
@@ -527,7 +521,6 @@
       color: #fff;
       font-size: 14px;
       font-weight: 700;
-      -webkit-tap-highlight-color: transparent;
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary .arrow { font-size: 18px; transition: transform 0.25s; flex-shrink: 0; margin-left: 8px; }
@@ -542,12 +535,22 @@
     /* 11. FOOTER */
     footer {
       background: var(--brown-card);
-      padding: 16px 20px;
+      padding: 24px 20px;
       text-align: center;
     }
-    footer p { color: #666; font-size: 11px; }
+    footer .wrap p:first-child {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    footer p { color: #666; font-size: 11px; line-height: 1.6; }
+    footer hr { border: none; border-top: 1px solid #333; margin: 12px auto; max-width: 600px; }
+    footer strong { color: var(--orange); }
 
-    /* ── DESKTOP TWEAKS ── */
     @media (min-width: 600px) {
       .hero h1 { font-size: 30px; }
       .wrap { padding: 0 24px; }
@@ -556,21 +559,21 @@
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════
-       1. HERO
-  ══════════════════════════════════════ -->
+  <!-- BANNER TOPO FINO -->
+  <div class="top-discount-bar">
+    OFERTA ESPECIAL — 93% DE DESCONTO
+  </div>
+
+  <!-- 1. HERO -->
   <section class="hero">
     <div class="wrap">
-      <span class="badge-pill">OFERTA ESPECIAL — 93% DE DESCONTO</span>
       <h1>+100 Planilhas de Treinos Ajustado para o seu Biotipo</h1>
       <p>Pare de perder tempo! Saiba exatamente o que seguir e quais os melhores exercícios</p>
       <img src="https://doram.shop/wp-content/uploads/2026/02/hero-image-1.png" alt="Capa +100 Planilhas de Treinos" loading="eager">
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       2. PREÇO / BENEFÍCIOS
-  ══════════════════════════════════════ -->
+  <!-- 2. PREÇO / BENEFÍCIOS -->
   <section class="pricing-section">
     <div class="wrap">
       <div class="social-row">
@@ -614,9 +617,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       3. TREINOS PERSONALIZADOS
-  ══════════════════════════════════════ -->
+  <!-- 3. TREINOS PERSONALIZADOS -->
   <section class="treinos-section">
     <div class="wrap">
       <div class="treinos-box">
@@ -627,9 +628,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       4. CARDS — PLANILHAS, GIFS, DESAFIO
-  ══════════════════════════════════════ -->
+  <!-- 4. CARDS -->
   <section class="cards-section">
     <div class="wrap">
       <h2>Veja o que você vai Aprender e Receber</h2>
@@ -670,9 +669,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       5. COMO ACESSAR
-  ══════════════════════════════════════ -->
+  <!-- 5. COMO ACESSAR -->
   <section class="access-section">
     <div class="wrap">
       <h2>Como Tenho Acesso ao Material?</h2>
@@ -698,9 +695,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       6. BÔNUS
-  ══════════════════════════════════════ -->
+  <!-- 6. BÔNUS -->
   <section class="bonus-section">
     <div class="wrap">
       <span class="badge-pill" style="margin-bottom:16px">🎁 Bônus Exclusivos</span>
@@ -744,9 +739,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       7. DEPOIMENTOS
-  ══════════════════════════════════════ -->
+  <!-- 7. DEPOIMENTOS -->
   <section class="testimonials-section">
     <div class="wrap">
       <p class="eyebrow">Depoimentos</p>
@@ -828,9 +821,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       8. OFERTA FINAL
-  ══════════════════════════════════════ -->
+  <!-- 8. OFERTA FINAL -->
   <section class="offer-section" id="oferta">
     <div class="offer-topbar">
       <p>✦ OFERTA ESPECIAL POR TEMPO LIMITADO! ✦</p>
@@ -851,7 +842,7 @@
           <div class="offer-price-box">
             <div class="from-line">
               <s>R$ 87,00</s>
-              <span class="off-badge">93% OFF</span>
+              <span class="badge-pill">93% OFF</span>
             </div>
             <p class="big-price">R$ 5,90</p>
             <p class="payment-info">Pagamento único</p>
@@ -873,7 +864,7 @@
           </div>
         </div>
 
-        <a href="#" class="btn-cta">SIM, QUERO GARANTIR MEU PACOTE AGORA!</a>
+        <a href="SEU_LINK_CHECKOUT" class="btn-cta" onclick="fbq('track','InitiateCheckout')">SIM, QUERO GARANTIR MEU PACOTE AGORA!</a>
         <p class="secure-text">🔒 Compra Segura</p>
         <div class="social-pill">
           <p>+ 2.347 pessoas já transformaram seus treinos!</p>
@@ -882,9 +873,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       9. CONFIANÇA
-  ══════════════════════════════════════ -->
+  <!-- 9. CONFIANÇA -->
   <section class="trust-section">
     <div class="wrap">
       <h2>Sua Confiança é Nossa Prioridade</h2>
@@ -904,9 +893,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       10. FAQ
-  ══════════════════════════════════════ -->
+  <!-- 10. FAQ -->
   <section class="faq-section">
     <div class="wrap">
       <h2>Perguntas Frequentes</h2>
@@ -931,20 +918,19 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       11. FOOTER
-  ══════════════════════════════════════ -->
-  <!-- ══════════════════════════════════════
-       FOOTER PADRÃO
-  ══════════════════════════════════════ -->
-  <footer style="background:#1a0e0a;padding:24px 20px">
-    <div class="wrap" style="text-align:center">
-      <p style="font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:#ff6b35;margin-bottom:6px;letter-spacing:1px;text-transform:uppercase">🏋️Nova Era Packs </p>
-      <p style="font-size:12px;color:#888;margin-bottom:12px">© 2026 Nova Era Packs — Todos os direitos reservados.</p>
-      <hr style="border:none;border-top:1px solid #333;margin:12px auto;max-width:600px">
-      <p style="font-size:11px;color:#666;line-height:1.6;max-width:520px;margin:0 auto"><strong style="color:#ff6b35">⚠️ SITE OFICIAL — ATENÇÃO:</strong> Este é o único site oficial de venda deste produto. A pirataria e reprodução não autorizada deste conteúdo constitui <strong>crime</strong> previsto na Lei nº 9.610/98 (Lei de Direitos Autorais) e no Código Penal Brasileiro, sujeito a pena de reclusão e multa. Qualquer cópia, distribuição ou comercialização sem autorização será denunciada às autoridades competentes.</p>
+  <!-- 11. FOOTER -->
+  <footer>
+    <div class="wrap">
+      <p>🏋️ Info Cursos Brasil</p>
+      <p style="font-size:12px;color:#888;margin-bottom:12px">© 2026 Info Cursos Brasil — Todos os direitos reservados.</p>
+      <hr>
+      <p><strong>⚠️ SITE OFICIAL — ATENÇÃO:</strong> Este é o único site oficial de venda deste produto. A pirataria e reprodução não autorizada deste conteúdo constitui <strong>crime</strong> previsto na Lei nº 9.610/98 (Lei de Direitos Autorais) e no Código Penal Brasileiro, sujeito a pena de reclusão e multa. Qualquer cópia, distribuição ou comercialização sem autorização será denunciada às autoridades competentes.</p>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));t&&t.scrollIntoView({behavior:'smooth'})})});
+  </script>
 
 </body>
 </html>
